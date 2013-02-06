@@ -1,0 +1,30 @@
+<h1>Редактирование страницы</h1>
+
+<form id="user-data" enctype="application/x-www-form-urlencoded" method="post" action="/admin/page/save?page=<?php echo $this->page->url_key ?>" class="form-horizontal">
+    <dt>
+        <label for="title">Заголовок</label>
+    </dt>
+    <dd>
+        <input type="text" name="title" id="title" value="<?php echo $this->page->title ?>" />
+    </dd>
+    <dt>
+        <label for="keywords">Ключевые слова</label>
+    </dt>
+    <dd>
+        <input type="text" name="keywords" id="keywords" value="<?php echo $this->page->keywords ?>" />
+    </dd>
+    <dt>
+        <label for="description">Описание страницы</label>
+    </dt>
+    <dd>
+        <input type="text" name="description" id="description" value="<?php echo $this->page->description ?>" />
+    </dd>
+    <textarea id="redactor_content" name="redactor_content" style="width: 100%; height: 320px;">
+        <?php echo $this->page->body ?>
+    </textarea>
+    <div class="form-actions">
+        <input type="submit" name="save" id="save" value="Сохранить" class="btn">
+        <input type="submit" name="cancel" id="cancel" value="Закрыть" class="btn" onclick="location = '/<?php echo $this->page->url_key ?>'; return false;">
+    </div>
+</form>
+

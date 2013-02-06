@@ -1,0 +1,35 @@
+<?php
+$request = Zend_Controller_Front::getInstance()->getRequest();
+$appendHref = $request->getParam('rating') ? '&rating=' . $request->getParam('rating') : '';
+?>
+<div class="pagination pagination-right">
+	<ul>
+		<li>
+			<?php if (isset($this->previous)): ?>
+				<a href="?page=<?php echo $this->previous . $appendHref ?>">←</a>
+			<?php else: ?>
+				<span class="disabled">←</span>
+			<?php endif; ?>
+		</li>
+
+		<?php foreach($this->pagesInRange as $page): ?>
+		<li>
+			<?php if ($page != $this->current): ?>
+				<a href="?page=<?php echo $page . $appendHref ?>">
+					<?php echo $page; ?>
+				</a>
+			<?php else: ?>
+				<span class="active"><?php echo $page; ?></span>
+			<?php endif; ?>
+		</li>
+		<?php endforeach; ?>
+
+		<li>
+			<?php if (isset($this->next)): ?>
+				<a href="?page=<?php echo $this->next . $appendHref ?>">→</a>
+			<?php else: ?>
+				<span class="disabled">→</span>
+			<?php endif; ?>
+		</li>
+	</ul>
+</div>

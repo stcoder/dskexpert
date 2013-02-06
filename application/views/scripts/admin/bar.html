@@ -1,0 +1,22 @@
+<div class="admin-block">
+    <div class="container" style="width: 1082px; margin: 0 auto;">
+        <ul>
+            <li><div class="logo-admin">Admin panel</div></li>
+            <li class="separator"></li>
+            <?php foreach($this->nav_items as $item): ?>
+                <li><a href="<?php echo $item['href'] ?>"><?php echo $item['label'] ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+        <ul class="fright">
+			<?php if ($this->new_questions > 0): ?>
+            <li><a href="/admin/faq/new">Новых вопросов: <strong><?php echo $this->new_questions ?></strong></a></li>
+			<?php endif; ?>
+
+			<?php if ($this->new_contractors > 0): ?>
+			<li><a href="/admin/contractors/new">Новых отзывов: <strong><?php echo $this->new_contractors ?></strong></a></li>
+			<?php endif; ?>
+			<li><a href="/admin/config">Настройки</a></li>
+            <li><a href="/admin/auth/logout">Выйти</a></li>
+        </ul>
+    </div>
+</div>

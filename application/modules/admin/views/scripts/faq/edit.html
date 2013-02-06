@@ -1,0 +1,19 @@
+<form method="post" action="/admin/faq/edit?id=<?php echo  $this->question->id ?>">
+<div class="item-wrap">
+	<div class="item-title">Вопрос от: <?php echo $this->question->username ?></div>
+	<div class="item-full-body">
+		<div class="item-info">E-mail: <?php echo $this->question->email ?></div>
+		<div class="item-info">Вопрос задан: <?php echo date('d.m.Y в H:i', strtotime($this->question->created_at)) ?></div>
+		<textarea id="question-editor" name="question" class="question-edit redactor_mini"><?php echo $this->question->question ?></textarea>
+		<br/>
+		<textarea id="answer-editor" name="answer" class="answer-edit redactor_mini" placeholder="Введите ответ..."><?php echo $this->question->answer ?></textarea>
+		<br/>
+		<div class="item-control">
+			<input type="submit" class="btn" value="Сохранить">
+			<a href="/admin/faq/delete?id=<?php echo  $this->question->id ?>" class="btn">Удалить</a>
+			<div class="preloader" style="display: none;"></div>
+			<div class="information-message" style="display: none;">Поля <strong>вопрос</strong> и <strong>ответ</strong> обязательны для заполнения.</div>
+		</div>
+	</div>
+</div>
+</form>

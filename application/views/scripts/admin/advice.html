@@ -1,0 +1,10 @@
+<div class="fright">
+	<?php if ($this->advice['published'] == 'on'): ?>
+		<a href="/admin/advice/nopublished?id=<?php echo $this->advice['id'] ?>">Не опубликовывать</a>
+	<?php else: ?>
+		<a href="/admin/advice/published?id=<?php echo $this->advice['id'] ?>">Опубликовать</a>
+	<?php endif; ?>
+	<a href="/admin/advice/edit?id=<?php echo $this->advice['id'] ?>">Редактировать</a>
+	<a href="/admin/advice/delete?id=<?php echo $this->advice['id'] ?>">Удалить</a>
+</div>
+<div  style="clear: both;"></div>

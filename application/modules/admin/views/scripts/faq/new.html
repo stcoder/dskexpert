@@ -1,0 +1,27 @@
+<h1>Новые вопросы</h1>
+<?php if (!$this->questions->count()): ?>
+	<div class="error">Нет новых вопросов.</div>
+<?php else: ?>
+	<?php foreach($this->questions as $question): ?>
+		<div class="item-wrap block-box">
+			<div class="item-title">Вопрос от: <?php echo $question->username ?></div>
+			<div class="item-small-body">
+				<div class="item-info"><?php echo $question->question ?></div>
+			</div>
+			<div class="item-full-body hide">
+				<div class="item-info">E-mail: <?php echo $question->email ?></div>
+				<div class="item-info">Вопрос задан: <?php echo date('d/m/Y в H:i', strtotime($question->created_at)) ?></div>
+				<textarea id="question-editor" class="question-edit redactor_mini"><?php echo $question->question ?></textarea>
+				<br/>
+				<textarea id="answer-editor" class="answer-edit redactor_mini" placeholder="Введите ответ..."></textarea>
+				<br/>
+				<div class="item-control">
+					<a href="/admin/faq/answer?id=<?php echo $question->id ?>" class="item-question-action-answer btn">Ответить</a>
+					<a href="/admin/faq/delete?id=<?php echo $question->id ?>" class="item-question-action-delete btn">Удалить</a>
+					<div class="preloader" style="display: none;"></div>
+					<div class="information-message" style="display: none;">Поля <strong>вопрос</strong> и <strong>ответ</strong> обязательны для заполнения.</div>
+				</div>
+			</div>
+		</div>
+	<?php endforeach; ?>
+<?php endif; ?>

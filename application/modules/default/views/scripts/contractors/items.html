@@ -1,0 +1,44 @@
+<?php if (count($this->contractors) == 0): ?>
+<div class="error">Нет записей.</div>
+<?php else: ?>
+<div id="items">
+	<?php foreach($this->contractors as $contractor): ?>
+	<div class="item-wrap">
+		<div class="item-title"><?php echo $contractor['company_name'] ?></div>
+		<div class="item-small-body">
+			<div class="item-info"><?php
+							$string = $contractor['comment'];
+							if (strlen($string) > 350) {
+				$position = strrpos(substr($string, 0, 350), ' ');
+				$string = substr($string, 0, $position) . '..';
+				}
+
+				echo $string;
+				?>
+			</div>
+		</div>
+		<div class="item-full-body hide">
+			<div class="item-info"><?php echo $contractor['comment'] ?></div>
+		</div>
+		<div class="item-info" style="float: left;">
+			<div class="rating">
+				<?php foreach(array(1,2,3,4,5) as $rate): ?>
+					<?php if ($rate <= $contractor['rating']) {
+						echo '<span class="green">&bull;</span>';
+						continue;
+					}
+					echo '<span>&bull;</span>';
+					?>
+				<?php endforeach; ?>
+			</div>
+		</div>
+		<div class="fright information-message" style="margin-top: 5px;">Опубликовано: <?php echo
+						date('d.m.Y в H:i', strtotime($contractor['published_at']))
+					?></div>
+		<div style="clear: both;"></div>
+		<?php echo $this->admin_RatingControl($contractor); ?>
+	</div>
+	<?php endforeach; ?>
+	<?php echo $this->paginationControl($this->contractors, 'Sliding', 'pagination.html'); ?>
+</div>
+<?php endif; ?>

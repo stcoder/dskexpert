@@ -1,0 +1,10 @@
+<div class="fright">
+	<?php if ($this->question['published'] == 'on'): ?>
+	<a href="/admin/faq/nopublished?id=<?php echo $this->question['id'] ?>">Не опубликовывать</a>
+	<?php else: ?>
+	<a href="/admin/faq/published?id=<?php echo $this->question['id'] ?>">Опубликовать</a>
+	<?php endif; ?>
+	<a href="/admin/faq/edit?id=<?php echo $this->question['id'] ?>">Редактировать</a>
+	<a href="/admin/faq/delete?id=<?php echo $this->question['id'] ?>">Удалить</a>
+</div>
+<div  style="clear: both;"></div>

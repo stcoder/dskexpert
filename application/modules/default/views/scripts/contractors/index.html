@@ -1,0 +1,26 @@
+<?php if (!$this->is_ajax): ?>
+<h1>Рейтинг подрядчиков<a href="/contractors/add" class="fright">Добавить отзыв</a></h1>
+<div class="sidebar">
+	<ul class="navigation-menu">
+		<li class="header">Сортировка</li>
+		<li>
+			<div class="sort-control">
+				<input type="checkbox" name="best" id="best" class="control">
+				<div class="fright preloader" style="display: none;"></div>
+				<label for="best">Лучшие</label>
+			</div>
+		</li>
+		<li>
+			<div class="sort-control">
+				<input type="checkbox" name="worst" id="worst" class="control">
+				<div class="fright preloader" style="display: none;"></div>
+				<label for="worst">Худшие</label>
+			</div>
+		</li>
+	</ul>
+</div>
+<?php endif; ?>
+<div class="container-content">
+	<?php echo $this->partial('contractors/items.html', array('contractors' => $this->contractors)) ?>
+</div>
+<div style="clear: both;"></div>

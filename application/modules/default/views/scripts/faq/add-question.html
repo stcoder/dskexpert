@@ -1,0 +1,7 @@
+<?php if ($this->message): ?>
+<h1>Спасибо за Ваш вопрос</h1>
+<p>На указанный Вами email <em>(<?php echo $this->email ?>)</em> придет уведомление об ответе на Ваш вопрос.</p>
+<?php else: ?>
+<h1>Задать вопрос</h1>
+<?php echo $this->form ?>
+<?php endif; ?>

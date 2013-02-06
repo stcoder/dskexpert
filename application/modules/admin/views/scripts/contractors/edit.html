@@ -1,0 +1,25 @@
+<div class="item-wrap">
+	<div class="item-title">Отзыв от: <?php echo $this->comment->user_name ?></div>
+	<div class="item-full-body">
+		<div class="item-info">E-mail: <?php echo $this->comment->user_email ?></div>
+		<div class="item-info">Оценка: 
+			<select class="rating-value">
+				<?php for($i=1; $i<=5; $i++): ?>
+				<option <?php echo ($this->comment->rating == $i) ? 'selected' : ''; ?>><?php echo $i ?></option>
+				<?php endfor; ?>
+			</select>
+		</div>
+		<div class="item-info-control">
+			Компания:
+			<input class="company-name" type="text" value='<?php echo $this->comment->company_name ?>'/>
+		</div>
+		<textarea id="comment-editor" class="redactor_mini comment"><?php echo $this->comment->comment ?></textarea>
+		<br/>
+		<div class="item-control">
+			<a href="/admin/contractors/edit?id=<?php echo $this->comment->id ?>" class="item-contractors-action-process btn">Сохранить</a>
+			<a href="/admin/contractors/delete?id=<?php echo  $this->comment->id ?>" class="item-contractors-action-delete btn">Удалить</a>
+			<div class="preloader" style="display: none;"></div>
+			<div class="information-message" style="display: none;">Поля <strong>вопрос</strong> и <strong>ответ</strong> обязательны для заполнения.</div>
+		</div>
+	</div>
+</div>

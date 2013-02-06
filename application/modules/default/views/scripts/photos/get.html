@@ -1,0 +1,9 @@
+<div class="block-box">
+    <div class="block-box-body" style="padding: 10px 0;">
+        <p><?php echo $this->photo->description ?></p>
+        <div style="text-align: center;">
+            <img src="<?php echo $this->photo->url ?>">
+        </div>
+        <?php echo $this->admin_PhotoControl($this->photo) ?>
+    </div>
+</div>

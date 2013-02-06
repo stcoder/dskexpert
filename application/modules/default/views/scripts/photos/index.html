@@ -1,0 +1,23 @@
+<div class="block-box">
+<div class="block-box-head">Фотогалерея</div>
+<div class="block-box-body">
+<?php if (!$this->photos->count()): ?>
+    <div class="alert alert-info">Еще ни одной фотографии не было загружено...</div>
+<?php else: ?>
+    <ul class="thumbnails">
+        <?php foreach($this->photos as $photo): ?>
+        <li class="span4">
+            <div class="thumbnail" style="height: 260px;">
+                <img src="<?php echo $photo['url'] ?>" alt="" style="height: 120px;">
+                <p><?php
+                    echo substr($photo['description'], 0, 150), '...';
+                ?></p>
+                <p><a href="/photo<?php echo $photo['id'] ?>" class="btn btn-link">Смотреть фотографию</a></p>
+            </div>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php echo $this->paginationControl($this->photos, 'Sliding', 'pagination.html'); ?>
+<?php endif; ?>
+</div>
+</div>

@@ -1,0 +1,8 @@
+data/cache/*
+application/config.ini
+library/Zend/
+public/uploads/files/*
+public/uploads/images/*
+public/uploads/photos/*
+public/images/captcha/*
+.idea

@@ -1,0 +1,10 @@
+<?php if (empty($this->cut_text)): ?>
+<?php echo $this->full_text ?>
+<?php else: ?>
+<div class="item-small-body">
+	<?php echo $this->cut_text ?>
+</div>
+<div class="item-full-body hide">
+	<?php echo $this->full_text ?>
+</div>
+<?php endif; ?>

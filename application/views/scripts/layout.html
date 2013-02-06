@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="utf-8">
+<?php echo $this->headTitle() ?>
+
+<?php echo $this->headMeta() ?>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" href="/css/style.css" media="screen">
+<script src="/js/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+<script src="/js/common.js"></script>
+<?php
+    $auth = Zend_Auth::getInstance();
+    $isAdmin = ($auth->hasIdentity() && $auth->getIdentity()->role === 'admin') ? true : false;
+?>
+<?php if ($isAdmin): ?>
+<script type="text/javascript" src="/js/ckeditor.js"></script>
+<script type="text/javascript" src="/js/ckeditor-jquery.js"></script>
+<?php endif; ?>
+</head>
+<?php echo $this->admin_Bar() ?>
+<body>
+<div class="container layout">
+    <div class="row">
+        <div class="span12 header">
+            <div class="row header-line1">
+                <div class="span3">
+                    <div class="company-abbr gray">
+                        <p>Дирекция</p>
+                        <p>Строительного</p>
+                        <p>Консультирования</p>
+                    </div>
+                </div>
+                <div class="span7"><a href="/"><div class="company-name">Эксперт</div></a></div>
+                <div class="offset10">
+                    <div class="contact-block">
+                        <div class="gray">г.Екатеринбург</div>
+                        <div class="phone"><span class="phone-code gray">+7 (343) </span>382-38-32</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row header-line2">
+                <div class="span5">
+                    <div class="slogan">
+                        <p>Мы не являемся посредниками
+                            <span>Мы представляем Ваши интересы, интересы заказчика</span></p>
+                    </div>
+                </div>
+                <div class="offset5">
+                    <div class="nav">
+                        <?php echo $this->navigation()->menu() ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <?php echo $this->layout()->content ?>
+        </div>
+        <div class="footer">
+            <div class="row" style="padding-top: 18px;">
+                <div class="span5">
+                    <p>© 2012 stroisvobodno.ru</p>
+                    <p>Дирекция Строительного Консультирования «Эксперт»</p>
+                </div>
+                <div class="span7" style="float: right; text-align: right; margin-right: 20px;">
+                    <p>г.Екатеринбург</p>
+                    <p>+7 (343) 382-38-32</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php if ($isAdmin): ?>
+<script>
+    if (document.getElementById('redactor_content')) {
+        CKEDITOR.replace('redactor_content',{
+            customConfig: '/js/config.js',
+            filebrowserUploadUrl : '/admin/uploader/file',
+            filebrowserImageUploadUrl : '/admin/uploader/image'
+        });
+    }
+
+    var redactors_mini = document.getElementsByClassName('redactor_mini');
+    if (redactors_mini) {
+        $.each(redactors_mini, function() {
+            /*CKEDITOR.replace($(this).attr('id'), {
+             height: 200,
+             width: 905,
+             enterMode: CKEDITOR.ENTER_BR,
+             jqueryOverrideVal: true,
+             removePlugins: 'table,pagebreak,tabletools,colorbutton,find,flash,font,forms,iframe,newpage,removeformat,scayt,smiley,specialchar,stylescombo,templates,wsc',
+             toolbarGroups: [
+             { name: 'basicstyles', groups: ['basicstyles'] },
+             { name: 'paragraph',   groups: [ 'align' ] },
+             { name: 'colors' },
+             { name: 'links' },
+             { name: 'insert' }
+             ]
+             });*/
+            $(this).ckeditor();
+        });
+    }
+</script>
+<?php endif; ?>
+</body>
+</html>

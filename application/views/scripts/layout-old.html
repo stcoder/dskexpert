@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<?php echo $this->headTitle() ?>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" xmlns="http://www.w3.org/1999/html"/>
+<?php echo $this->headMeta() ?>
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+<script src="/js/jquery.js"></script>
+<script src="/js/common.js"></script>
+<?php
+	$auth = Zend_Auth::getInstance();
+	$isAdmin = ($auth->hasIdentity() && $auth->getIdentity()->role === 'admin') ? true : false;
+?>
+<?php if ($isAdmin): ?>
+<script type="text/javascript" src="/js/ckeditor.js"></script>
+<script type="text/javascript" src="/js/ckeditor-jquery.js"></script>
+<?php endif; ?>
+
+<?php echo $this->admin_Bar() ?>
+<div class="body">
+	<div class="container">
+		<div class="header">
+			<div class="hello-man"></div>
+			<div class="logo"></div>
+			<div class="home-header"></div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="navigation-wrap">
+			<?php echo $this->navigation()->menu() ?>
+		</div>
+	</div>
+	
+	<div class="container" style="margin-top: 42px;">
+		<div class="content">
+			<?php echo $this->layout()->content ?>
+
+		</div>
+	</div>
+	<div class="footer">
+		<span id="openstat2295943" style="margin-left: 50px; float: left; margin-right: -138px;"></span>
+		<strong>г. Екатеринбург</strong><br/>
+		© 2012 stroisvobodno.ru
+	</div>
+</div>
+<?php if ($isAdmin): ?>
+<script>
+if (document.getElementById('redactor_content')) {
+	CKEDITOR.replace('redactor_content',{
+		customConfig: '/js/config.js',
+        filebrowserUploadUrl : '/admin/uploader/file',
+        filebrowserImageUploadUrl : '/admin/uploader/image'
+	});
+}
+
+var redactors_mini = document.getElementsByClassName('redactor_mini');
+if (redactors_mini) {
+	$.each(redactors_mini, function() {
+		/*CKEDITOR.replace($(this).attr('id'), {
+			height: 200,
+			width: 905,
+			enterMode: CKEDITOR.ENTER_BR,
+			jqueryOverrideVal: true,
+			removePlugins: 'table,pagebreak,tabletools,colorbutton,find,flash,font,forms,iframe,newpage,removeformat,scayt,smiley,specialchar,stylescombo,templates,wsc',
+			toolbarGroups: [
+				{ name: 'basicstyles', groups: ['basicstyles'] },
+				{ name: 'paragraph',   groups: [ 'align' ] },
+				{ name: 'colors' },
+				{ name: 'links' },
+				{ name: 'insert' },
+			  ]
+		});*/
+		$(this).ckeditor();
+	});
+}
+</script>
+<?php endif; ?>
+<!--Openstat-->
+<script type="text/javascript">
+var openstat = { counter: 2295943, image: 5081, color: "72b626", next: openstat };
+(function(d, t, p) {
+var j = d.createElement(t); j.async = true; j.type = "text/javascript";
+j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";
+var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);
+})(document, "script", document.location.protocol);
+</script>
+<!--/Openstat-->

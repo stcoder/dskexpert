@@ -1,0 +1,11 @@
+[cache]
+enable = true
+lifetime = 7200
+file.cache_dir = ROOT_DIR'/data/cache'
+
+[database]
+params.host = localhost
+params.username =
+params.password =
+params.dbname =
+params.charset = utf8

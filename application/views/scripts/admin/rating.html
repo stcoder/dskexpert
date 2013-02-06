@@ -1,0 +1,10 @@
+<div class="fright">
+	<?php if ($this->options['published'] == 'yes'): ?>
+	<a href="/admin/contractors/nopublished?id=<?php echo $this->options['id'] ?>">Не опубликовывать</a>
+	<?php else: ?>
+	<a href="/admin/contractors/published?id=<?php echo $this->options['id'] ?>">Опубликовать</a>
+	<?php endif; ?>
+	<a href="/admin/contractors/edit?id=<?php echo $this->options['id'] ?>">Редактировать</a>
+	<a href="/admin/contractors/delete?id=<?php echo $this->options['id'] ?>">Удалить</a>
+</div>
+<div  style="clear: both;"></div>

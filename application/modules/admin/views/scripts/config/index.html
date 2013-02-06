@@ -1,0 +1,86 @@
+<h1>Настройка сайта</h1>
+<form id="site-config" enctype="application/x-www-form-urlencoded" method="post" action="/admin/config/site" class="form-horizontal">
+	<dt>
+		<label for="title">Заголовок сайта</label>
+	</dt>
+	<dd>
+		<input type="text" name="title" id="title" value="<?php echo $this->config->title_site ?>" />
+	</dd>
+	<dt>
+		<label for="advice">Советов на страницу</label>
+	</dt>
+	<dd>
+		<input type="text" name="advice" id="advice" value="<?php echo $this->config->count_advices ?>" />
+	</dd>
+
+	<dt>
+		<label for="faq">Вопросов на страницу</label>
+	</dt>
+	<dd>
+		<input type="text" name="faq" id="faq" value="<?php echo $this->config->count_questions ?>" />
+	</dd>
+	<dt>
+		<label for="rating">Рейтингов на страницу</label>
+	</dt>
+	<dd>
+		<input type="text" name="rating" id="rating" value="<?php echo $this->config->count_ratings ?>" />
+	</dd>
+	<div class="form-actions">
+		<input type="submit" name="save" id="save-site" value="Сохранить" class="btn">
+	</div>
+</form>
+
+
+<h1>Настройка почты</h1>
+<form id="mail-config" enctype="application/x-www-form-urlencoded" method="post" action="/admin/config/mail" class="form-horizontal">
+	<dt>
+		<label for="smtp-server">SMTP сервер</label>
+	</dt>
+	<dd>
+		<input type="text" name="smtp-server" id="smtp-server" value="<?php echo $this->config['smtp-server'] ?>" />
+	</dd>
+	<dt>
+		<label for="smtp-login">Логин</label>
+	</dt>
+	<dd>
+		<input type="text" name="smtp-login" id="smtp-login" value="<?php echo $this->config['smtp-login'] ?>" />
+	</dd>
+
+	<dt>
+		<label for="smtp-password">Пароль</label>
+	</dt>
+	<dd>
+		<input type="password" name="smtp-password" id="smtp-password" value="<?php echo $this->config['smtp-password'] ?>" />
+	</dd>
+	<dt>
+		<label for="email">Email для уведомлений</label>
+	</dt>
+	<dd>
+		<input type="text" name="email" id="email" value="<?php echo $this->config['email-notification'] ?>" />
+	</dd>
+	<div class="form-actions">
+		<input type="submit" name="save" id="save-mail" value="Сохранить" class="btn">
+	</div>
+</form>
+
+<h1>Настройка админки</h1>
+<?php if ($this->password_error): ?>
+<div class="error"><?php echo $this->password_error ?></div>
+<?php endif; ?>
+<form id="admin-config" enctype="application/x-www-form-urlencoded" method="post" action="/admin/config/password" class="form-horizontal">
+	<dt>
+		<label for="old-password">Старый пароль</label>
+	</dt>
+	<dd>
+		<input type="password" name="old-password" id="old-password" value="" />
+	</dd>
+	<dt>
+		<label for="new-password">Новый пароль</label>
+	</dt>
+	<dd>
+		<input type="password" name="new-password" id="new-password" value="" />
+	</dd>
+	<div class="form-actions">
+		<input type="submit" name="save" id="save-password" value="Сохранить" class="btn">
+	</div>
+</form>

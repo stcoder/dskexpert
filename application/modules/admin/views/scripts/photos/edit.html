@@ -1,0 +1,33 @@
+<div class="block-box">
+    <div class="block-box-head">Добавить фотографию</div>
+    <div class="block-box-body">
+        <form enctype="multipart/form-data" class="form-horizontal" action="/admin/photos/edit?id=<?php echo $this->photo->id ?>" method="post">
+            <?php if (isset($this->error)): ?>
+            <div class="alert alert-error"><?php echo $this->error ?></div>
+            <?php endif; ?>
+            <div class="control-group">
+                <label class="control-label" for="description">Описание фотографии</label>
+                <div class="controls">
+                    <textarea class="redactor_mini" id="description" name="description" rows="6">
+                        <?php echo $this->photo->description ?>
+                    </textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn">Сохранить</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    CKEDITOR.replace($('#description').attr('id'), {
+        height: 200,
+        width: 765,
+        enterMode: CKEDITOR.ENTER_BR,
+        jqueryOverrideVal: true,
+        removePlugins: 'table,pagebreak,tabletools,colorbutton,find,flash,font,forms,iframe,newpage,removeformat,scayt,smiley,specialchar,stylescombo,templates,wsc',
+        toolbarGroups: []
+    });
+</script>

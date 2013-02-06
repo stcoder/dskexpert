@@ -1,0 +1,32 @@
+<h1>Новые вопросы</h1>
+<?php if (!$this->comments->count()): ?>
+<div class="error">Нет новых отзывов.</div>
+<?php else: ?>
+<div id="items">
+<?php foreach($this->comments as $comment): ?>
+<div class="item-wrap">
+	<div class="item-title">Новый отзыв от: <?php echo $comment->user_name ?></div>
+	<div class="item-small-body">
+		<div class="item-info">E-mail: <?php echo $comment->user_email ?></div>
+		<div class="item-info">Оценка: <?php echo $comment->rating ?></div>
+		<div class="item-info">Компания: <?php echo $comment->company_name ?></div>
+	</div>
+	<div class="item-full-body hide">
+		<div class="item-info">E-mail: <?php echo $comment->user_email ?></div>
+		<div class="item-info">Оценка: <?php echo $comment->rating ?></div>
+		<div class="item-info-control">
+			Компания:
+			<input class="company-name" type="text" value='<?php echo $comment->company_name ?>'/>
+		</div>
+		<textarea class="comment"><?php echo $comment->comment ?></textarea>
+		<div class="item-control">
+			<a href="/admin/contractors/process?id=<?php echo $comment->id ?>" class="item-contractors-action-process btn">Обработать</a>
+			<a href="/admin/contractors/delete?id=<?php echo $comment->id ?>" class="item-contractors-action-delete btn">Удалить</a>
+			<div class="preloader" style="display: none;"></div>
+			<div class="information-message" style="display: none;"></div>
+		</div>
+	</div>
+</div>
+<?php endforeach; ?>
+</div>
+<?php endif; ?>
