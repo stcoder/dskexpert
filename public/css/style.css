@@ -136,8 +136,11 @@ body {
   transition: border-color 0.35s ease, -webkit-box-shadow 0.35s ease;
 }
 
-.block-box-active:hover {
+.block-box-active {
   cursor: pointer;
+}
+
+.block-box-active:hover {
   border-color: rgba(82, 168, 236, 0.8);
   outline: 0;
   outline: thin dotted \9;
