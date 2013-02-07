@@ -1,41 +1,38 @@
 <?php echo $this->body ?>
 <?php
 $filter = new Zend_Filter_StripTags();
-$shortBody = substr($filter->filter($this->articles[0]['short_content']), 0, 800);
-$shortBody1 = substr($shortBody, 0, strrpos($shortBody, ' ')) . '...';
+$shortBody = substr($filter->filter($this->advices[0]['body']), 0, 800);
+$shortBody1 = substr($shortBody, 0, strrpos($shortBody, ' ')) . ' ...';
 
-$shortBody = substr($filter->filter($this->articles[1]['short_content']), 0, 800);
-$shortBody2 = substr($shortBody, 0, strrpos($shortBody, ' ')) . '...';
+$shortBody = substr($filter->filter($this->advices[1]['body']), 0, 800);
+$shortBody2 = substr($shortBody, 0, strrpos($shortBody, ' ')) . ' ...';
 ?>
 <div style="margin-top: 20px">
     <div class="row-fluid">
         <ul class="thumbnails">
             <li class="span4">
-                <div class="thumbnail thumbnail-box">
-                    <div class="head"><a href="/article-<?php echo $this->articles[0]['id'] ?>"><?php echo $this->articles[0]['title'] ?></a></div>
+                <div class="thumbnail thumbnail-box block-box-active" onclick="location.href='/advice<?php echo $this->advices[0]['id'] ?>';">
+                    <div class="head"><a href="/advice<?php echo $this->advices[0]['id'] ?>"><?php echo $this->advices[0]['title'] ?></a></div>
                     <div class="caption">
                         <?php echo $shortBody1 ?>
-                        <p><a href="/article-<?php echo $this->articles[0]['id'] ?>" class="btn btn-link">Читать дальше →</a></p>
                     </div>
                 </div>
             </li>
             <li class="span4">
-                <div class="thumbnail thumbnail-box">
-                    <img src="<?php echo $this->photo['url'] ?>" alt="" style="height: 170px;">
+                <div class="thumbnail thumbnail-box block-box-active" onclick="location.href='/photo<?php echo $this->photo['id'] ?>';">
+                    <img src="<?php echo $this->photo['url'] ?>" alt="" style="height: 215px;">
                     <div class="caption">
                         <p><?php
-                            echo substr($this->photo['description'], 0, 250), '...';
+                            echo substr($this->photo['description'], 0, 250), ' ...';
                         ?></p>
-                        <p><a href="/photo<?php echo $this->photo['id'] ?>" class="btn btn-link">Подробней →</a></p>
                     </div>
                 </div>
             </li>
             <li class="span4">
-                <div class="thumbnail thumbnail-box">
-                    <div class="head"><a href="/article-<?php echo $this->articles[1]['id'] ?>"><?php echo $this->articles[1]['title'] ?></a></div>
+                <div class="thumbnail thumbnail-box block-box-active" onclick="location.href='/advice<?php echo $this->advices[1]['id'] ?>';">
+                    <div class="head"><a href="/advice<?php echo $this->advices[1]['id'] ?>"><?php echo $this->advices[1]['title'] ?></a></div>
                     <div class="caption">
                         <?php echo $shortBody2 ?>
-                        <p><a href="/article-<?php echo $this->articles[1]['id'] ?>" class="btn btn-link">Читать дальше →</a></p>
                     </div>
                 </div>
             </li>

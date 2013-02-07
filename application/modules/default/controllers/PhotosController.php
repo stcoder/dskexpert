@@ -23,6 +23,10 @@ class PhotosController extends Kaipack_Controller_Action
             return;
         }
 
+        $select = $photos->select();
+        $select->where('id != ?', $row->id);
+
         $this->view->photo = $row;
+        $this->view->photos = $photos->fetchAll($select);
     }
 }

@@ -6,14 +6,10 @@
 <?php else: ?>
     <ul class="thumbnails">
         <?php foreach($this->photos as $photo): ?>
-        <li class="span4">
-            <div class="thumbnail" style="height: 260px;">
+        <li class="span3">
+            <a href="/photo<?php echo $photo['id'] ?>" class="thumbnail">
                 <img src="<?php echo $photo['url'] ?>" alt="" style="height: 120px;">
-                <p><?php
-                    echo substr($photo['description'], 0, 150), '...';
-                ?></p>
-                <p><a href="/photo<?php echo $photo['id'] ?>" class="btn btn-link">Смотреть фотографию</a></p>
-            </div>
+            </a>
         </li>
         <?php endforeach; ?>
     </ul>

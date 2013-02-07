@@ -1,7 +1,9 @@
-<div class="page-head">
-    <h1 style="margin-bottom: -2px;">Контакты</h1>
-</div>
-<ul>
-  <li><p>Связаться с нами можно по следующим телефонам:</p></li>
-  <li><p>Ваши пожелания и предложения по всем интересующим Вас вопросам направляйте по адресу:</p></li>
-</ul>
+<div class="page-header"><h1>Контакты</h1></div>
+<?php echo $this->body ?>
+
+<?php if($this->message): ?>
+    <div class="alert alert-success">Ваше сообщение успешно отправлено.</div>
+<?php else: ?>
+<div class="page-header"><h1>Напишите нам</h1></div>
+<?php echo $this->form ?>
+<?php endif; ?>

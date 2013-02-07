@@ -22,4 +22,12 @@ class Advice extends Zend_Db_Table_Abstract
 		$paginator->setPageRange(10);
 		return $paginator;
 	}
+
+    public function getRandom()
+    {
+        $query  = $this->getAdapter()->query('SELECT * FROM `advice` WHERE id >= (SELECT FLOOR( MAX(id) * RAND()) FROM `advice` ) ORDER BY id LIMIT 2');
+        $result = $query->fetchAll();
+
+        return $result;
+    }
 }

@@ -128,6 +128,13 @@ $router->addRoute('advice', new Zend_Controller_Router_Route('/advice', array(
      'controller' => 'advice',
      'action' => 'index'
 )));
+$router->addRoute('adviceshow', new Zend_Controller_Router_Route_Regex('advice(\d+)', array(
+    'module' => 'default',
+    'controller' => 'advice',
+    'action' => 'show'
+), array(
+    1 => 'advice_id'
+)));
 
 // article route
 $router->addRoute('article', new Zend_Controller_Router_Route('/article', array(
