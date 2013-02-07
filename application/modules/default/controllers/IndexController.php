@@ -75,6 +75,7 @@ class IndexController extends Kaipack_Controller_Action
         $form = new Form_AddQuestion();
         $form->setAction('/contacts');
         $form->getElement('question')->setLabel('Сообщение');
+        $form->getElement('accept')->setLabel('Написать');
 
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($_POST)) {
