@@ -14,8 +14,11 @@
                 $d = $photo['description'];
                 if (strlen($d) > 20) {
                     $short  = substr($d, 0, 20);
-                    $lspace = strripos($short, ' ');
-                    $d = substr($d, 0, $lspace);
+                    if (false !== ($lspace = strripos($short, ' '))) {
+                        $d = substr($d, 0, $lspace);
+                    } else {
+                        $d = $short;
+                    }
                 }
                 echo $d, ' ...';
                 ?></p>
