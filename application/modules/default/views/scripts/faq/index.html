@@ -1,4 +1,4 @@
-<div class="page-header"><h1>Консультация</h1></div>
+<div class="page-header">Консультация</div>
 <?php if (count($this->questions)): ?>
 <?php foreach($this->questions as $question): ?>
 <div class="block-box block-box-active" style="margin-bottom: 10px;cursor: pointer;">
@@ -9,7 +9,7 @@
             <strong>Ответ:</strong><?php echo $question['answer'] ?>
         </div>
     </div>
-    <div style="padding: 10px;"><?php echo $this->admin_FaqControl($question) ?></div>
+    <?php echo $this->admin_FaqControl($question) ?>
 </div>
 <?php endforeach; ?>
 <?php echo $this->paginationControl($this->questions, 'Sliding', 'pagination.html'); ?>
@@ -20,6 +20,6 @@
 <h1>Спасибо за Ваш вопрос</h1>
 <p>На указанный Вами email <em>(<?php echo $this->email ?>)</em> придет уведомление об ответе на Ваш вопрос.</p>
 <?php else: ?>
-<div class="page-header"><h1>Задать вопрос</h1></div>
+<div class="page-header">Задать вопрос</div>
 <?php echo $this->form ?>
 <?php endif; ?>

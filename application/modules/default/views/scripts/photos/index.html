@@ -9,6 +9,16 @@
         <li class="span3">
             <a href="/photo<?php echo $photo['id'] ?>" class="thumbnail">
                 <img src="<?php echo $photo['url'] ?>" alt="" style="height: 120px;">
+
+                <p><?php
+                $d = $photo['description'];
+                if (strlen($d) > 20) {
+                    $short  = substr($d, 0, 20);
+                    $lspace = strripos($short, ' ');
+                    $d = substr($d, 0, $lspace);
+                }
+                echo $d, ' ...';
+                ?></p>
             </a>
         </li>
         <?php endforeach; ?>

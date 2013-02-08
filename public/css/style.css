@@ -164,6 +164,15 @@ body {
     font-weight: bold;
     line-height: 25px;
     text-align: center;
+    font-size: 26px;
+}
+
+.page-header {
+  color: #000961;
+  font-weight: bold;
+  line-height: 25px;
+  font-size: 26px;
+  border-bottom: 1px solid #C7C7C7;
 }
 
 .big-heading span {
@@ -265,4 +274,12 @@ img {
   background: url(/images/preloader.gif);
   margin: 9px 14px;
   padding: 0px;
+}
+
+.carousel-inner > .active {
+  text-align: center;
+}
+
+.carousel-inner > .item > img {
+  display: inline-block;
 }
