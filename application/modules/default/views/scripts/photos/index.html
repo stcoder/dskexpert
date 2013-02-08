@@ -19,6 +19,8 @@
                     } else {
                         $d = $short;
                     }
+                    $lspace = strripos($short, ' ');
+                    $d = substr($d, 0, $lspace);
                 }
                 echo $d, ' ...';
                 ?></p>
