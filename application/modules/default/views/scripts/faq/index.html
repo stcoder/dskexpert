@@ -1,4 +1,5 @@
-<div class="page-header">Консультация</div>
+<div class="block-box">
+<div class="block-box-head">Консультация</div>
 <?php if (count($this->questions)): ?>
 <?php foreach($this->questions as $question): ?>
 <div class="block-box block-box-active" style="margin-bottom: 10px;cursor: pointer;">
@@ -16,10 +17,14 @@
 <?php else: ?>
 	<div class="error">Вопросов нет.</div>
 <?php endif; ?>
+</div>
+
+<div class="block-box" style="margin-top: 20px;">
 <?php if ($this->message): ?>
 <h1>Спасибо за Ваш вопрос</h1>
 <p>На указанный Вами email <em>(<?php echo $this->email ?>)</em> придет уведомление об ответе на Ваш вопрос.</p>
 <?php else: ?>
-<div class="page-header">Задать вопрос</div>
+<div class="block-box-head">Задать вопрос</div>
 <?php echo $this->form ?>
 <?php endif; ?>
+</div>
