@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div class="block-box">
 <div class="block-box-head">Консультация</div>
 <?php if (count($this->questions)): ?>
@@ -59,4 +60,38 @@
 <?php echo $this->form ?>
 <?php endif; ?>
 >>>>>>> 8fe2cac851902cef9d472b46fbec0e89dadf9261
+=======
+
+<div class="block-box">
+<div class="block-box-head">
+    Часто задаваемые вопросы
+</div>
+<?php if (count($this->questions)): ?>
+<?php foreach($this->questions as $question): ?>
+<div class="block-box block-box-active" style="margin-bottom: 10px;cursor: pointer;">
+    <div class="block-box-body" style="margin: 10px 0;">
+        <?php echo $question['question'] ?>
+        <div class="item-small-body"></div>
+        <div class="item-full-body hide">
+            <strong>Ответ:</strong><?php echo $question['answer'] ?>
+        </div>
+    </div>
+    <?php echo $this->admin_FaqControl($question) ?>
+</div>
+<?php endforeach; ?>
+<?php echo $this->paginationControl($this->questions, 'Sliding', 'pagination.html'); ?>
+<?php else: ?>
+	<div class="error">Вопросов нет.</div>
+<?php endif; ?>
+</div>
+
+<div class="block-box" style="margin-top: 20px;">
+<?php if ($this->message): ?>
+<h1>Спасибо за Ваш вопрос</h1>
+<p>На указанный Вами email <em>(<?php echo $this->email ?>)</em> придет уведомление об ответе на Ваш вопрос.</p>
+<?php else: ?>
+<div class="block-box-head">Задать вопрос</div>
+<?php echo $this->form ?>
+<?php endif; ?>
+>>>>>>> dc8558fbe6c16c517630de20338cfe93dfa4284c
 </div>
