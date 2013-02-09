@@ -48,6 +48,11 @@ class IndexController extends Kaipack_Controller_Action
 		$this->setPage('rating-contractors');
 	}
 
+    function aboutAction()
+    {
+        $this->setPage('about');
+    }
+
 	function tenderAction()
 	{
 		$this->setPage('tender');

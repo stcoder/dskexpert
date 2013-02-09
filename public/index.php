@@ -170,7 +170,7 @@ $router->addRoute('rating-contractors', new Zend_Controller_Router_Route('/ratin
 $router->addRoute('about', new Zend_Controller_Router_Route('/about', array(
      'module' => 'default',
      'controller' => 'index',
-     'action' => 'tender'
+     'action' => 'about'
 )));
 
 // cost of services route
