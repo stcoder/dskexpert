@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="block-box">
 <div class="block-box-head">Полезные советы</div>
 <?php if (count($this->advices)): ?>
@@ -15,4 +16,23 @@
 <?php else: ?>
 <div class="error">Извините, но никаких полезных советов еще не было опубликовано.</div>
 <?php endif; ?>
+=======
+<div class="block-box">
+<div class="block-box-head">Полезные советы и статьи</div>
+<?php if (count($this->advices)): ?>
+	<?php foreach ($this->advices as $item): ?>
+	<div class="block-box block-box-active" style="margin-bottom: 10px;cursor: pointer;">
+		<div class="block-box-head"><?php echo $item['title'] ?></div>
+        <div class="block-box-body">
+            <?php echo $this->cutText($item['body']) ?>
+            <div style="clear: both;"></div>
+        </div>
+        <div style="padding: 10px;"><?php echo $this->admin_AdviceControl($item) ?></div>
+	</div>
+	<?php endforeach; ?>
+<?php echo $this->paginationControl($this->advices, 'Sliding', 'pagination.html'); ?>
+<?php else: ?>
+<div class="error">Извините, но никаких полезных советов еще не было опубликовано.</div>
+<?php endif; ?>
+>>>>>>> 8fe2cac851902cef9d472b46fbec0e89dadf9261
 </div>
